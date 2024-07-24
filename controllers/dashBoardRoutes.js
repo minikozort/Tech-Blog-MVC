@@ -15,19 +15,29 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.delete('/:id', withAuth, async (req, res) => {
+
+router.get('/new', withAuth, (req, res) => {
+  res.render('newPost', {
+    mydashboard: true,
+    loggedIn: req.session.loggedIn,
+  });
+});
+
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const blogData = await Blog.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-    if (!blogData) {
-      res.status(404).json({ message: 'No blog was found with this id!' });
-      return;
+    const postData = await Post.findByPk(req.params.id);
+
+    if (postData) {
+      const post = postData.get({ plain: true });
+
+      res.render('editPost', {
+        mydashboard: true,
+        post,
+        loggedIn: req.session.loggedIn,
+      });
+    } else {
+      res.status(404).end();
     }
-    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }
