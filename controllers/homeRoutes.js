@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/blog/:id', async (req, res) => {
+  router.get('/blogs/:id', async (req, res) => {
     try {
       const blogData = await Blog.findByPk(req.params.id, {
         include: [User,
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
   
       const blog = blogData.get({ plain: true });
   
-      res.render('viewPost', {
+      res.render('viewBlog', {
         blog,
         loggedIn: req.session.loggedIn
       });
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
-      res.redirect('/dashBoard');
+      res.redirect('/mydashboard');
       return;
     }
   
