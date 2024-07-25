@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="row">
+    {{#each blogs}}
+    <div class="col-md-12 mb-4">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h2 class="h5 mb-0">
+            <a href="/blogs/{{id}}" class="text-decoration-none">{{title}}</a>
+          </h2>
+          <div class="text-muted">
+            Posted by {{user.userName}} on {{formatDate createdAt}}
+          </div>
+        </div>
+        <div class="card-body">
+          {{body}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
