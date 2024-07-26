@@ -1,60 +1,51 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog } = require('../../models/');
 const withAuth = require('../../helpers/auth');
 
-// POST route for creating a new blog post
 router.post('/', withAuth, async (req, res) => {
+  const body = req.body;
+
   try {
-    const newBlog = await Blog.create({
-      ...req.body, // Spread the request body to include title and body
-      user_id: req.session.user_id, // Associate with the logged-in user
-    });
-    res.status(200).json(newBlog); // Send response with the created blog
+    const newBlog = await Blog.create({ ...body, userId: req.session.user_id });
+    res.json(newBlog);
   } catch (err) {
-    res.status(400).json(err); // Send error response
+    res.status(500).json(err);
   }
 });
 
-// PUT route for updating an existing blog post
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updatedBlog = await Blog.update(req.body, {
+    const [affectedRows] = await Blog.update(req.body, {
       where: {
-        id: req.params.id, // Find blog by ID
-        user_id: req.session.user_id, // Ensure the user is the author
+        id: req.params.id,
       },
     });
 
-    if (updatedBlog[0] === 0) {
-      res.status(404).json({ message: 'No blog found or user not authorized to update this blog!' });
-      return;
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-
-    const updatedData = await Blog.findByPk(req.params.id); // Fetch updated blog
-    res.status(200).json(updatedData); // Send response with updated blog
   } catch (err) {
-    res.status(500).json(err); // Send error response
+    res.status(500).json(err);
   }
 });
 
-// DELETE route for deleting a blog post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const blogData = await Blog.destroy({
+    const [affectedRows] = Blog.destroy({
       where: {
-        id: req.params.id, // Find blog by ID
-        user_id: req.session.user_id, // Ensure the user is the author
+        id: req.params.id,
       },
     });
 
-    if (!blogData) {
-      res.status(404).json({ message: 'No blogs were found with this id!' });
-      return;
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
-
-    res.status(200).json(blogData); // Send response confirming deletion
   } catch (err) {
-    res.status(500).json(err); // Send error response
+    res.status(500).json(err);
   }
 });
 

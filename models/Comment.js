@@ -11,15 +11,15 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    comment_text: {
+    body: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize,
-    underscored: true,
     freezeTableName: true,
+    underscored: true,
     modelName: 'comment',
   }
 );

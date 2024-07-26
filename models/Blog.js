@@ -12,9 +12,9 @@ Blog.init(
       autoIncrement: true,
     },
     title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     blog_text: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,8 +22,8 @@ Blog.init(
   },
   {
     sequelize,
-    underscored: true,
     freezeTableName: true,
+    underscored: true,
     modelName: 'blog',
   }
 );
