@@ -1,12 +1,12 @@
-const blogId = document.querySelector('input[name="blog-id"]').value;
+const postId = document.querySelector('input[name="post-id"]').value;
 
 const editFormHandler = async function (event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="blog-title"]').value;
-  const body = document.querySelector('textarea[name="blog-body"]').value;
+  const title = document.querySelector('input[name="post-title"]').value;
+  const body = document.querySelector('textarea[name="post-body"]').value;
 
-  await fetch(`/api/blogs/${blogId}`, {
+  await fetch(`/api/posts/${postId}`, {
     method: 'PUT',
     body: JSON.stringify({
       title,
@@ -21,7 +21,7 @@ const editFormHandler = async function (event) {
 };
 
 const deleteClickHandler = async function () {
-  await fetch(`/api/blogs/${blogId}`, {
+  await fetch(`/api/posts/${postId}`, {
     method: 'DELETE',
   });
 
@@ -29,7 +29,7 @@ const deleteClickHandler = async function () {
 };
 
 document
-  .querySelector('#edit-blog-form')
+  .querySelector('#edit-post-form')
   .addEventListener('submit', editFormHandler);
 document
   .querySelector('#delete-btn')

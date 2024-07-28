@@ -1,75 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Home</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <style>
-      .card {
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            {{#if loggedIn}}
-            <a class="nav-link" href="#" id="logout">Logout</a>
-            {{else}}
-            <a class="nav-link" href="#">Login</a>
-            {{/if}}
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-         <header class='hero'>
-      {{#if mydashboard}}
-        <h1 class='app-title'><a href='/dashBoard'>My Dashboard</a></h1>
-      {{else}}
-        <h1 class='app-title'><a href='/'>The Tech Blog</a></h1>
-      {{/if}}
-    </header>
-
-    <main class='col-auto'>
-      {{{body}}}
-    </main>
-
-    {{#if mydashboard}}
-      <footer class='footer flex-row justify-center'>
-        <a href='/dashBoard/new'>➕ New Blog</a>
-      </footer>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>The Tech Blog</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel='stylesheet' href="/css/style.css">
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav>
+    <div id='navbarNav'>
+      <ul class='nav-left'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/dashboard'>My Dashboard</a></li>
+      </ul>
+      <ul class='nav-right'>
+        {{#if loggedIn}}
+          <li><a href='#' id='logout'>Logout</a></li>
+        {{else}}
+          <li><a href='/login'>Login</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Jumbotron -->
+  <header>
+    {{#if dashboard}}
+      <h1><a href='/dashboard'>Your Dashboard</a></h1>
     {{else}}
-      <footer class='flex-row justify-center'>
-       Created by Goksel Gokkocabas
-      </footer>
+      <h1><a href='/'>The Tech Blog</a></h1>
     {{/if}}
-
-      </div>
-
-    <!-- Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      {{#if loggedIn}}
-      <script src='../../public/js/logOut.js'></script>
-    {{/if}}
-  </body>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    {{{body}}}
+  </main>
+  
+  <!-- Footer -->
+  {{#if dashboard}}
+    <footer>
+      <a href='/dashboard/new'>➕ New Post</a>
+    </footer>
+  {{else}}
+    <footer>
+      Created by Goksel Gokkocabas
+    </footer>
+  {{/if}}
+  
+  <!-- Scripts -->
+  {{#if loggedIn}}
+    <script src='/js/logout.js'></script>
+  {{/if}}
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

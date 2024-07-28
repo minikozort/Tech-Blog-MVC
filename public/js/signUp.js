@@ -25,7 +25,7 @@ const signupFormHandler = async function (event) {
     }
   } else {
     alert(
-      'Please include both a username and password, and make sure your password is at least 10 characters long'
+      'Please include both a username and password, and make sure your password is at least 8 characters long'
     );
   }
 };
@@ -33,3 +33,16 @@ const signupFormHandler = async function (event) {
 document
   .querySelector('#signup-form')
   .addEventListener('submit', signupFormHandler);
+
+function toggleSignupPassword() {
+  const passwordInput = document.getElementById('password-input-signup');
+  const toggleButton = document.querySelector('.password-toggle-btn');
+  
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleButton.textContent = 'Hide';
+  } else {
+    passwordInput.type = 'password';
+    toggleButton.textContent = 'Show';
+  }
+}

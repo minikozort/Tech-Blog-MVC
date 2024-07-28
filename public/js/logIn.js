@@ -27,3 +27,15 @@ const loginFormHandler = async function (event) {
 document
   .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
+
+const togglePassword = document.querySelector('#toggle-password');
+const passwordInput = document.querySelector('#password-input-login');
+
+togglePassword.addEventListener('click', function () {
+  // Toggle the type attribute
+  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordInput.setAttribute('type', type);
+  
+  // Toggle the button text
+  this.textContent = type === 'password' ? 'Show' : 'Hide';
+});

@@ -1,25 +1,23 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="h5 mb-0">Login</h2>
-        </div>
-        <form id="login-form" class="card-body">
-          <div class="form-group">
-            <label for="username-input-login" class="form-label">Username</label>
-            <input type="text" id="username-input-login" class="form-control" />
-          </div>
-          <div class="form-group">
-            <label for="password-input-login" class="form-label">Password</label>
-            <input type="password" id="password-input-login" class="form-control" />
-          </div>
-          <button type="submit" id="login-btn" class="btn btn-primary">Login</button>
-          <a href="/signup" class="btn btn-link">Sign up!</a>
-        </form>
+<div class="login-card">
+  <div class="login-card-header">
+    <h2>Login</h2>
+  </div>
+  <form id="login-form" class="login-card-body">
+    <div>
+      <label for="username-input-login" class="login-form-label">Username</label>
+      <input type="text" id="username-input-login" class="login-input" />
+    </div>
+    <div>
+      <label for="password-input-login" class="login-form-label">Password</label>
+      <div class="password-container">
+        <input type="password" id="password-input-login" class="login-input" />
+        <button type="button" id="toggle-password" class="toggle-password-btn">Show</button>
       </div>
     </div>
-  </div>
+    <button type="submit" id="login-btn" class="login-btn">Login!</button>
+    <a href="/signup" class="signup-link">Sign up instead</a>
+  </form>
 </div>
 
- <script src="../public/js/logIn.js"></script>
+
+<script src="/js/login.js"></script>

@@ -1,21 +1,21 @@
 const router = require('express').Router();
-const { Blog } = require('../../models/');
-const withAuth = require('../../helpers/auth');
+const { Post } = require('../../models/');
+const { apiGuard } = require('../../helpers/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', apiGuard, async (req, res) => {
   const body = req.body;
 
   try {
-    const newBlog = await Blog.create({ ...body, userId: req.session.user_id });
-    res.json(newBlog);
+    const newPost = await Post.create({ ...body, userId: req.session.user_id });
+    res.json(newPost);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', apiGuard, async (req, res) => {
   try {
-    const [affectedRows] = await Blog.update(req.body, {
+    const [affectedRows] = await Post.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -31,9 +31,9 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', apiGuard, async (req, res) => {
   try {
-    const [affectedRows] = Blog.destroy({
+    const [affectedRows] = Post.destroy({
       where: {
         id: req.params.id,
       },

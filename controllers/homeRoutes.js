@@ -1,23 +1,24 @@
 const router = require('express').Router();
-const { Blog, Comment, User } = require('../models/');
+const { Post, Comment, User } = require('../models/');
+const { withGuard, withoutGuard } = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
+    const postData = await Post.findAll({
       include: [User],
     });
 
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('home', { blogs, loggedIn: req.session.loggedIn });
+    res.render('home', { posts, loggedIn: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         User,
         {
@@ -27,10 +28,10 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
-    if (blogData) {
-      const blog = blogData.get({ plain: true });
+    if (postData) {
+      const post = postData.get({ plain: true });
 
-      res.render('viewBlog', { blog, loggedIn: req.session.loggedIn });
+      res.render('post', { post, loggedIn: req.session.logged_in });
     } else {
       res.status(404).end();
     }
@@ -39,7 +40,7 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', withoutGuard, (req, res) => {
   try {
     res.render('login');
   } catch (err) {
@@ -47,7 +48,7 @@ router.get('/login', (req, res) => {
   }
 });
 
-router.get('/signup', (req, res) => {
+router.get('/signup', withoutGuard, (req, res) => {
   try {
     res.render('signup');
   } catch (err) {

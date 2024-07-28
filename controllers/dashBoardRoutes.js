@@ -1,45 +1,45 @@
 const router = require('express').Router();
-const { Blog } = require('../models');
-const withAuth = require('../helpers/auth');
+const { Post } = require('../models');
+const { withGuard } = require('../helpers/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', withGuard, async (req, res) => {
   try {
-    const blogData = await Blog.findAll({
+    const postData = await Post.findAll({
       where: {
         userId: req.session.user_id,
       },
     });
 
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('dashBoard', {
       dashboard: true,
-      blogs,
-      loggedIn: req.session.loggedIn,
+      posts,
+      loggedIn: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/new', withAuth, (req, res) => {
-  res.render('newBlog', {
+router.get('/new', withGuard, (req, res) => {
+  res.render('newPost', {
     dashboard: true,
-    loggedIn: req.session.loggedIn,
+    loggedIn: req.session.logged_in,
   });
 });
 
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.get('/edit/:id', withGuard, async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id);
+    const postData = await Post.findByPk(req.params.id);
 
-    if (blogData) {
-      const blog = blogData.get({ plain: true });
+    if (postData) {
+      const post = postData.get({ plain: true });
 
-      res.render('editBlog', {
+      res.render('editPost', {
         dashboard: true,
-        blog,
-        loggedIn: req.session.loggedIn,
+        post,
+        loggedIn: req.session.logged_in,
       });
     } else {
       res.status(404).end();
