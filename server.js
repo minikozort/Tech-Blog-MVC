@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Goksel Super secret secret',
   cookie: {
-    maxAge: 100000,
+    maxAge: 1000000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
