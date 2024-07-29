@@ -2,9 +2,9 @@ Title: Tech-Blog-MVC
 
 
 Description:
-In this challenge, I have created a back-end server operations for an e-commerce website. In this back-end operations, users can view categories, create, update and delete a category - users can view tags of the products, create, update and delete a tag - users can view products, create, update and delete a product using Insomnia as a route-testing tool.  
+In this challenge, I have created a Full-Stack website where users can blog about anything they want. I have used handlebars to serve the front end and express server for the backend. I have used custom css styling as well as Bootstrap and Google Fonts.  
 How to Run:
-1 - Run the application of your choice such as "VS Code" then, please copy the repository link below and clone the repository on your local machine by typing the following in the terminal "git clone "copied repository link".
+Please click on deployed link below and you will be prompted to the main page of the application. You can view the example blogs that were created or you can write your own. In order to do that, you will have to sign up. Once you sign up, you will automatically be logged in. You can create a new post, edit your posts or delete them entirely, you can also leave a comment for any of the posts while logged in.
 
 
 ![alt text](./pics/MVC-Main-Page.PNG)
@@ -18,4 +18,4 @@ How to Run:
 
 
 Github Repository : https://github.com/minikozort/Tech-Blog-MVC.git
-Render Link : https://tech-blog-mvc-e0ny.onrender.com
+Deployed Link : https://tech-blog-mvc-e0ny.onrender.com
