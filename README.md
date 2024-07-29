@@ -18,4 +18,4 @@ How to Run:
 
 
 Github Repository : https://github.com/minikozort/Tech-Blog-MVC.git
-Mock-up Video Link : reder.link
+Render Link : https://tech-blog-mvc-e0ny.onrender.com

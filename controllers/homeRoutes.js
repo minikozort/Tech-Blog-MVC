@@ -40,7 +40,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get('/login', withoutGuard, (req, res) => {
+router.get('/login', (req, res) => {
   try {
     res.render('login');
   } catch (err) {
@@ -48,7 +48,7 @@ router.get('/login', withoutGuard, (req, res) => {
   }
 });
 
-router.get('/signup', withoutGuard, (req, res) => {
+router.get('/signup', (req, res) => {
   try {
     res.render('signup');
   } catch (err) {
