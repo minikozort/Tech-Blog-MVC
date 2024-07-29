@@ -1,18 +1,18 @@
 [
     {
-      "username": "Goksel",
-      "password": "password123"
+      "username": "goksel",
+      "password": "password1@3"
     },
     {
-      "username": "Valerie",
-      "password": "password123"
+      "username": "valerie",
+      "password": "password1@3"
     },
     {
-      "username": "Aiden",
-      "password": "password123"
+      "username": "aiden",
+      "password": "password1@3"
     },
     {
-        "username": "Ella",
-        "password": "password123"
+        "username": "ella",
+        "password": "password1@3"
       }
   ]

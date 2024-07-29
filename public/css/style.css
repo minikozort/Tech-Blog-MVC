@@ -79,20 +79,44 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-header a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-header a:hover {
-    text-decoration: underline;
-}
-
+/* General header styling */
+header {
+    background: linear-gradient(135deg, #007bff, #00d2ff); /* Gradient background */
+    padding: 1rem 2rem; /* Padding around the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center; /* Center align text */
+  }
+  
+  header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 2.5rem; /* Increase font size */
+    color: #fff; /* White text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for text */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition effect */
+  }
+  
+  header h1:hover {
+    color: #ffeb3b; /* Change text color on hover */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+  }
+  
+  /* Optional styling for responsiveness */
+  @media (max-width: 768px) {
+    header {
+      padding: 1rem; /* Reduce padding on smaller screens */
+    }
+  
+    header h1 {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .uppercase2 {
+    text-transform: uppercase;
+  }
 /* Main Content Styles */
 main {
     padding: 2rem;

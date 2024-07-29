@@ -2,6 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+// Utility function to validate passwords
+const validatePassword = (password) => {
+  const specialCharRegex = /[!@#$%^&*()]/;
+  const numberRegex = /\d/;
+  return specialCharRegex.test(password) && numberRegex.test(password);
+};
+
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -19,12 +26,27 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+      // Ensure the username is always stored in lowercase
+      set(value) {
+        this.setDataValue('username', value.toLowerCase());
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: {
+          args: [8],
+          msg: 'Password must be at least 8 characters long.',
+        },
+        isValidPassword(value) {
+          if (!validatePassword(value)) {
+            throw new Error(
+              'Password must include at least one special character (!@#$%^&*()) and one number.'
+            );
+          }
+        },
       },
     },
   },
@@ -35,10 +57,9 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
+        if (updatedUserData.password) {
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        }
         return updatedUserData;
       },
     },
