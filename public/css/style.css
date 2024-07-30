@@ -96,7 +96,14 @@ header h1:hover {
         font-size: 2rem; /* Adjust font size for smaller screens */
     }
 }
-
+@media (max-width: 768px) {
+    .uppercase2 {
+        text-transform: uppercase;
+    }
+    .uppercase {
+        text-transform: uppercase;
+    }
+}
 /* Card Styles for Login Page */
 .login-card {
     border: 1px solid #ddd;
