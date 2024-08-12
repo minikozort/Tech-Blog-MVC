@@ -20,21 +20,21 @@ router.post('/', apiRequireLogin, async (req, res) => {
 // Requires user to be logged in (apiRequireLogin middleware)
 router.put('/:id', apiRequireLogin, async (req, res) => {
   try {
-    // Update the post with the specified ID using data from the request body
-    const [affectedRows] = await Post.update(req.body, {
-      where: {
-        id: req.params.id, // Filter to match the post by its ID
-      },
-    });
+    const postId = req.params.id;
+    
+    // Attempt to find the post first
+    const post = await Post.findByPk(postId);
 
-    // Check if any rows were affected (updated)
-    if (affectedRows > 0) {
-      res.status(200).end(); // Respond with a 200 status code if the update was successful
+    if (post) {
+      // If the post exists, update it with the new data
+      await post.update(req.body);
+      res.status(200).json(post); // Respond with the updated post
     } else {
-      res.status(404).end(); // Respond with a 404 status code if no post with the specified ID was found
+      res.status(404).json({ message: 'Post not found' }); // Respond with a 404 and a message if the post wasn't found
     }
   } catch (err) {
-    res.status(500).json(err); // Respond with a 500 status code and error message if something goes wrong
+    console.error(err); // Log the error for debugging purposes
+    res.status(500).json({ error: 'Failed to update post' });
   }
 });
 
@@ -42,21 +42,21 @@ router.put('/:id', apiRequireLogin, async (req, res) => {
 // Requires user to be logged in (apiRequireLogin middleware)
 router.delete('/:id', apiRequireLogin, async (req, res) => {
   try {
-    // Delete the post with the specified ID
-    const affectedRows = await Post.destroy({
-      where: {
-        id: req.params.id, // Filter to match the post by its ID
-      },
-    });
+    const postId = req.params.id;
 
-    // Check if any rows were affected (deleted)
-    if (affectedRows > 0) {
-      res.status(200).end(); // Respond with a 200 status code if the delete was successful
+    // Attempt to find the post first
+    const post = await Post.findByPk(postId);
+
+    if (post) {
+      // If the post exists, delete it
+      await post.destroy();
+      res.status(200).json({ message: 'Post deleted successfully' });
     } else {
-      res.status(404).end(); // Respond with a 404 status code if no post with the specified ID was found
+      res.status(404).json({ message: 'Post not found' }); // Respond with a 404 and a message if the post wasn't found
     }
   } catch (err) {
-    res.status(500).json(err); // Respond with a 500 status code and error message if something goes wrong
+    console.error(err); // Log the error for debugging purposes
+    res.status(500).json({ error: 'Failed to delete post' });
   }
 });
 
