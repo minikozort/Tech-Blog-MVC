@@ -104,6 +104,12 @@ header h1:hover {
         text-transform: uppercase;
     }
 }
+.uppercase2 {
+    text-transform: uppercase;
+}
+.uppercase {
+    text-transform: uppercase;
+}
 /* Card Styles for Login Page */
 .login-card {
     border: 1px solid #ddd;
@@ -352,3 +358,153 @@ header h1:hover {
         padding: 0.5rem 1rem;
     }
 }
+
+.create-post-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .create-post-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .create-post-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-form-label {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .create-form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .create-form-input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+    outline: none;
+  }
+  
+  .create-submit-btn {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-submit-btn:hover {
+    background-color: #004999;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    width: 100%; 
+    position: relative;
+    bottom: 0;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .edit-post-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .edit-post-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .edit-post-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .edit-form-label {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .edit-form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .edit-form-input:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+    outline: none;
+  }
+  
+  .edit-form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .edit-submit-btn, .edit-delete-btn {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-delete-btn {
+    background-color: #ff4d4d;
+  }
+  
+  .edit-submit-btn:hover {
+    background-color: #004999;
+  }
+  
+  .edit-delete-btn:hover {
+    background-color: #cc0000;
+  }
+  

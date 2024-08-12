@@ -17,5 +17,5 @@ Please click on deployed link below and you will be prompted to the main page of
 
 
 
-Github Repository : https://github.com/minikozort/Tech-Blog-MVC.git
-Deployed Link : https://tech-blog-mvc-e0ny.onrender.com
+Github Repository : https://github.com/wilsacker/Crypto-Currently
+Deployed Link : https://crypto-currently.onrender.com/
