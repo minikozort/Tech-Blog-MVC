@@ -96,20 +96,15 @@ header h1:hover {
         font-size: 2rem; /* Adjust font size for smaller screens */
     }
 }
-@media (max-width: 768px) {
-    .uppercase2 {
-        text-transform: uppercase;
-    }
-    .uppercase {
-        text-transform: uppercase;
-    }
-}
+
 .uppercase2 {
     text-transform: uppercase;
 }
+
 .uppercase {
     text-transform: uppercase;
 }
+
 /* Card Styles for Login Page */
 .login-card {
     border: 1px solid #ddd;
@@ -156,28 +151,8 @@ header h1:hover {
     font-size: 1rem;
 }
 
-.password-field {
-    position: relative;
-}
 
-.password-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.password-toggle-btn {
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 0.875rem;
-    margin-left: 0.5rem;
-}
-
-.password-toggle-btn:hover {
-    text-decoration: underline;
-}
-
+/* Login Button Styles */
 .login-btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -359,6 +334,8 @@ header h1:hover {
     }
 }
 
+
+/* Create Post Styles */
 .create-post-card {
     background-color: #ffffff;
     border-radius: 10px;
@@ -367,42 +344,42 @@ header h1:hover {
     margin: 20px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-  }
-  
-  .create-post-header h2 {
+}
+
+.create-post-header h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 15px;
     text-align: center;
-  }
-  
-  .create-post-body {
+}
+
+.create-post-body {
     display: flex;
     flex-direction: column;
-  }
-  
-  .create-form-label {
+}
+
+.create-form-label {
     color: #555;
     font-size: 14px;
     margin-bottom: 5px;
-  }
-  
-  .create-form-input {
+}
+
+.create-form-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     margin-bottom: 15px;
     width: 100%;
-  }
-  
-  .create-form-input:focus {
+}
+
+.create-form-input:focus {
     border-color: #0066cc;
     box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
     outline: none;
-  }
-  
-  .create-submit-btn {
+}
+
+.create-submit-btn {
     background-color: #0066cc;
     color: #fff;
     padding: 10px 15px;
@@ -411,12 +388,13 @@ header h1:hover {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .create-submit-btn:hover {
+}
+
+.create-submit-btn:hover {
     background-color: #004999;
-  }
-  footer {
+}
+
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -426,18 +404,19 @@ header h1:hover {
     width: 100%; 
     position: relative;
     bottom: 0;
-  }
-  
-  footer a {
+}
+
+footer a {
     color: #007bff;
     text-decoration: none;
-  }
-  
-  footer a:hover {
+}
+
+footer a:hover {
     text-decoration: underline;
-  }
-  
-  .edit-post-card {
+}
+
+/* Edit Post Styles */
+.edit-post-card {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -445,47 +424,47 @@ header h1:hover {
     margin: 20px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-  }
-  
-  .edit-post-header h2 {
+}
+
+.edit-post-header h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 15px;
     text-align: center;
-  }
-  
-  .edit-post-body {
+}
+
+.edit-post-body {
     display: flex;
     flex-direction: column;
-  }
-  
-  .edit-form-label {
+}
+
+.edit-form-label {
     color: #555;
     font-size: 14px;
     margin-bottom: 5px;
-  }
-  
-  .edit-form-input {
+}
+
+.edit-form-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     margin-bottom: 15px;
     width: 100%;
-  }
-  
-  .edit-form-input:focus {
+}
+
+.edit-form-input:focus {
     border-color: #0066cc;
     box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
     outline: none;
-  }
-  
-  .edit-form-actions {
+}
+
+.edit-form-actions {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .edit-submit-btn, .edit-delete-btn {
+}
+
+.edit-submit-btn, .edit-delete-btn {
     background-color: #0066cc;
     color: #fff;
     padding: 10px 15px;
@@ -494,17 +473,96 @@ header h1:hover {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .edit-delete-btn {
+}
+
+.edit-delete-btn {
     background-color: #ff4d4d;
-  }
-  
-  .edit-submit-btn:hover {
+}
+
+.edit-submit-btn:hover {
     background-color: #004999;
-  }
-  
-  .edit-delete-btn:hover {
+}
+
+.edit-delete-btn:hover {
     background-color: #cc0000;
-  }
-  
+}
+
+/* Password Container */
+.password-container {
+    position: relative;
+}
+
+/* Style for the Password Input Field */
+.password-container .login-input {
+    width: 100%;
+    padding-right: 3rem; /* Space for the show/hide button */
+}
+
+/* Style for the Show/Hide Button */
+.toggle-password-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff; /* Button background color */
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    z-index: 1; /* Ensure it appears above the input */
+}
+
+/* Hover State for the Button */
+.toggle-password-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Adjustments for Small Screens */
+@media (max-width: 768px) {
+    .toggle-password-btn {
+        right: 0.5rem; /* Adjust the button position on smaller screens */
+    }
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+/* Style for the Password Input Field */
+.password-wrapper .signup-input {
+    width: 100%;
+    padding-right: 3rem; /* Space for the show/hide button */
+}
+
+/* Style for the Show/Hide Button */
+.password-toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #28a745; /* Button background color */
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    z-index: 1; /* Ensure it appears above the input */
+}
+
+/* Hover State for the Button */
+.password-toggle-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Adjustments for Small Screens */
+@media (max-width: 768px) {
+    .password-toggle-btn {
+        right: 0.5rem; /* Adjust the button position on smaller screens */
+    }
+}
+
+
